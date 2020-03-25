@@ -8,6 +8,7 @@ import heapq
 alefbet_len = len(ascii_lowercase)
 
 letter2index = {s:idx for idx,s in enumerate(ascii_lowercase)}
+zero_list  = [0 for i in range(alefbet_len)]
 zero_array = array.array('b',range(alefbet_len))
 for i in range(alefbet_len):
     zero_array[i] = 0
@@ -45,9 +46,7 @@ def denis_hash(word):
     return hash
 
 def denis_hash_array(word):
-    hash = array.array('b',range(alefbet_len))
-    for i in range(alefbet_len):
-        hash[i] = 0
+    hash = array.array('b',zero_list)
     for idx, ch in enumerate(word):
         hash[letter2index[ch]] += 1
     return hash    
